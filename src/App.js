@@ -4,22 +4,29 @@ import './App.css';
 class App extends Component {
   constructor() {
     super();
-
     this.state = {
-      name: 'Keith'
+      monsters: [
+        {
+          name: 'Linda'
+        },
+        {
+          name: 'Frank'
+        },
+        {
+          name: 'Jacky'
+        }
+      ]
     }
-
   }
 
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <p>Hello {this.state.name}</p>
-          <button onClick={() => {
-            this.setState({name: 'Jacob'});
-          }}>Change Name</button>
-        </header>
+        {
+          this.state.monsters.map((monster) => {
+            return <h1>{monster.name}</h1>
+          })
+        }
       </div>
     );
   }
